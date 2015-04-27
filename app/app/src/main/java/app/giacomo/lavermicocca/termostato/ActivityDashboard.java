@@ -2,7 +2,6 @@ package app.giacomo.lavermicocca.termostato;
 
 import android.content.Context;
 import android.net.Uri;
-import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -15,8 +14,8 @@ import android.view.View;
 import app.giacomo.lavermicocca.termostato.Fragment.Calendar;
 import app.giacomo.lavermicocca.termostato.Fragment.Dashboard;
 import app.giacomo.lavermicocca.termostato.Fragment.DisplayText;
-import app.giacomo.lavermicocca.termostato.Fragment.SensorsClock;
 import app.giacomo.lavermicocca.termostato.Fragment.NavigationDrawerFragment;
+import app.giacomo.lavermicocca.termostato.Fragment.SensorsClock;
 
 public class ActivityDashboard extends BaseActionBarActivity implements
                                                               SensorsClock.OnFragmentInteractionListener,
@@ -53,11 +52,6 @@ public class ActivityDashboard extends BaseActionBarActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-        // disabling foreground dispatch:
-        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        if (nfcAdapter != null) {
-            nfcAdapter.disableForegroundDispatch(this);
-        }
     }
 
     @Override
@@ -67,14 +61,6 @@ public class ActivityDashboard extends BaseActionBarActivity implements
         // vado alla dashboard (homepage)
         goToSensorsClock();
     }//onResume
-
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//
-//        //NFC init
-//        tesseraBean = Nfc.initNfc(intent, getApplicationContext());
-//    }
 
     /**
      * cancella la storia (questo nel caso in cui ho scansionato un nuovo NFC)

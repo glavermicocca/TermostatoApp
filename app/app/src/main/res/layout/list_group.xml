@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="80dp"
+    android:background="@color/blue_dark"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/global_horizontal_layout_style">
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        style="@style/customLightFont.customMediumText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="Titolo default"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/title_group" />
+
+</LinearLayout>

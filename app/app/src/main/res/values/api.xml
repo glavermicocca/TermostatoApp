@@ -5,5 +5,7 @@
 
     <string name="api_post_set_custom_text">/setCustomText</string>
 
+    <string name="api_post_get_schedule">/getSchedule</string>
+    <string name="api_post_set_schedule">/setSchedule</string>
 
 </resources>

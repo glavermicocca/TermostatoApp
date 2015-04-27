@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dip"
+    android:orientation="vertical" >
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblListItem"/>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:id="@+id/table_layout_schedule">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/row"
+            android:weightSum="1">
+
+            <include layout="@layout/include_schedule_header"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/include_table_header"
+                android:layout_weight="1"></include>
+        </TableRow>
+
+        </TableLayout>
+
+</LinearLayout>

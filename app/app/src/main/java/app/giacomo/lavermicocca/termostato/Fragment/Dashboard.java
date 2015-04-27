@@ -3,7 +3,6 @@ package app.giacomo.lavermicocca.termostato.Fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -111,7 +110,6 @@ public class Dashboard extends Fragment {
     //------------ VIEW INITS -----------------
 
     Context mContext;
-    NfcAdapter mNfcAdapter;
 
     private void setupView(View view)
     {

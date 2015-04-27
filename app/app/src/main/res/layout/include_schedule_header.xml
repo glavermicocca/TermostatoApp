@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    style="@style/global_horizontal_layout_style"
+    android:weightSum="4"
+    android:padding="10dp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        style="@style/customRegularFont.customSmallText"
+        android:singleLine="true"
+        android:text="Start time"
+        android:textColor="@color/gray3"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/start_time"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        style="@style/customRegularFont.customSmallText"
+        android:singleLine="true"
+        android:text="End time"
+        android:textColor="@color/gray3"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/end_time"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        style="@style/customRegularFont.customSmallText"
+        android:singleLine="true"
+        android:textColor="@color/gray3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/temperature"
+        android:text="Temperature"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        style="@style/customRegularFont.customSmallText"
+        android:singleLine="true"
+        android:textColor="@color/gray3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/elimina"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+</LinearLayout>
