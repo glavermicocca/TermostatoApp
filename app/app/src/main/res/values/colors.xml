@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Background color selected Text programmatically-->
+    <color name="textViewBackground">#55000000</color>
+    <!-- DIVISORE NELLE LIST -->
+    <color name="list_divider">#d9d9d9</color>
+
+    <!--barretta superiore - Material -->
+    <color name="blue_light">#5C8AC2</color>
+
+    <!--hamburger - primaryColorDark -->
+    <color name="blue_light_medium">#92B4DF</color>
+    <color name="white">#FFF</color>
+
+    <!--testo credito punti-->
+    <color name="gray">#272727</color>
+
+    <!--testo sotto punteggio accumulati - bar - footer -->
+    <color name="blue_dark">#4D7BB4</color>
+
+    <!--table-->
+    <color name="table_header">#6785AA</color>
+    <color name="table_zebra">#EBF0F5</color>
+    <color name="table_text">#6D6D6D</color>
+    <!--accentColor-->
+    <color name="table_icon">#2E88F7</color>
+
+    <!--icone rotonde-->
+    <color name="text_label">#819ec6</color>
+    <color name="text_card_id">#b8cae1</color>
+    <color name="round_icon">#92B4DF</color>
+    <color name="round_icon_pressed">#4D7BB4</color>
+
+    <!--LABELS-->
+    <color name="gray6">#666666</color>
+    <!--TEXTS-->
+    <color name="gray3">#333333</color>
+    <!--LINES-->
+    <color name="grayC">#cccccc</color>
+    <!--BACKGROUNDS-->
+    <color name="background">#f3f3f3</color>
+
+    <!--BUTTONS-->
+    <color name="green">#7bbd5b</color>
+    <color name="grayE6">#e6e6e6</color>
+
+    <!--EDIT TEXT-->
+    <color name="edit_text_background">#6a9ad5</color>
+    <color name="edit_text_color">#eff3fa</color>
+    <color name="edit_text_color_hint">#eff3fa</color>
+
+    <!--Mappa hover text-->
+    <color name="black">#000</color>
+
+    <!--LOGIN-->
+    <color name="blue_dark_light">#6695d1</color>
+    <color name="blue_light_max">#e0eeff</color>
+    <color name="blue_dark_max">#366195</color>
+
+    <!--DRAWER MENU-->
+    <color name="blue_dark_full">#3d689d</color>
+    <color name="blue_light_profilo">#ced9e6</color>
+
+    <!--DASHBOARD-->
+    <color name="line_light">#ddd</color>
+    <color name="line_dark">#888</color>
+
+    <!--Fragments Activities Background-->
+    <color name="white_background">#FFF</color>
+
+    <!--Fragment Report-->
+    <color name="totale_text">#2f3e52</color>
+    <color name="totale_label">#2f3e52</color>
+
+    <!--DETTAGLIO PARTNER-->
+    <color name="blue_dark_very_light">#92b0d5</color>
+
+    <color name="azure">#d4e2f4</color>
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Termostato app</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_not_set">Titolo non settato</string>
+    <string name="BREADCRUMBS_NON_SETTATA">Breadcrumb non settata</string>
+    <string name="title_empty"></string>
+    <string name="la_mia_card">La mia card</string>
+    <string name="TESTO_LUNGO">TESTO LUNGO</string>
+
+    <string name="Sensors_Clock">Sensors Clock</string>
+    <string name="Calendar">Calendar</string>
+    <string name="Dashboard">Dashboard</string>
+    <string name="Display_Text">Display text</string>
+</resources>

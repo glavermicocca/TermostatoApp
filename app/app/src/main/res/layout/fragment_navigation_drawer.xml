@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/containerDrawerImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_dark_full"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView30"
+            android:id="@+id/layout_profilo"
+            android:paddingBottom="8dp">
+
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                android:id="@+id/profilo"
+                style="@style/customLightFont.customNormalText"
+                android:text="Profilo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/view5"
+                android:layout_toEndOf="@+id/view5"
+                android:textColor="@color/blue_light_profilo"
+                android:paddingLeft="5dp" />
+
+            <com.shamanland.fonticon.FontIconView
+                style="@style/customIconFontWhite"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:text="@string/icon_user_2"
+                android:layout_alignBottom="@+id/email"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:id="@+id/view5"
+                android:textColor="@color/blue_light_profilo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView30"
+            android:id="@+id/layout_password"
+            android:paddingBottom="8dp">
+
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                android:id="@+id/password"
+                style="@style/customLightFont.customNormalText"
+                android:text="Password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/view6"
+                android:layout_toEndOf="@+id/view6"
+                android:textColor="@color/blue_light_profilo"
+                android:paddingLeft="5dp" />
+
+            <com.shamanland.fonticon.FontIconView
+                style="@style/customIconFontWhite"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:text="@string/icon_lock_4"
+                android:layout_alignBottom="@+id/password"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:id="@+id/view6"
+                android:textColor="@color/blue_light_profilo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView30"
+            android:id="@+id/layout_esci"
+            android:paddingBottom="8dp">
+
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                android:id="@+id/esci"
+                style="@style/customLightFont.customNormalText"
+                android:text="Esci"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/view7"
+                android:layout_toEndOf="@+id/view7"
+                android:textColor="@color/blue_light_profilo"
+                android:paddingLeft="5dp" />
+
+            <com.shamanland.fonticon.FontIconView
+                style="@style/customIconFontWhite"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:text="@string/icon_delete_circle"
+                android:layout_alignBottom="@+id/esci"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:id="@+id/view7"
+                android:textColor="@color/blue_light_profilo" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/containerDrawerImage"
+        android:background="@color/blue_dark">
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

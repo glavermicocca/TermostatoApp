@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp">
+
+    <com.shamanland.fonticon.FontIconView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listIcon"
+        android:text="@string/icon_add"
+        android:textSize="25dp"
+        android:clickable="true"
+        style="@style/customIconFont"
+        android:textIsSelectable="false"
+        android:textColor="@color/white"
+        android:autoText="false"
+        android:paddingRight="26dp"
+        android:layout_gravity="center_vertical" />
+
+    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dummy Text"
+        android:id="@+id/listText"
+        style="@style/customLightFont.customIntermediateText"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>

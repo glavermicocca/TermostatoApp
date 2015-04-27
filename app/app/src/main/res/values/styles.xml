@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+        -->
+        <item name="drawerArrowStyle">@style/Theme.Test.DrawerArrowStyle</item>
+    </style>
+
+    <style name="Theme.Test.DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/blue_light_medium</item>
+        <item name="android:padding">16dp</item>
+
+        <item name="thickness">4dp</item>
+        <item name="barSize">26dp</item>
+        <item name="gapBetweenBars">3dp</item>
+        <item name="middleBarArrowSize">16dp</item>
+        <item name="drawableSize">26dp</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/blue_light</item>
+        <item name="android:colorPrimaryDark">@color/blue_light_medium</item>
+        <item name="android:colorAccent">@color/table_icon</item>
+    </style>
+
+    <style name="customIconFont">
+        <item name="overridePressed">true</item>
+        <item name="pressedGlowColor">#F00</item>
+        <item name="pressedGlowRadius">1dp</item>
+        <item name="android:textColor">@color/table_icon</item>
+    </style>
+
+    <style name="customIconFontWhite">
+        <item name="overridePressed">true</item>
+        <item name="pressedGlowColor">@color/blue_dark</item>
+        <item name="pressedGlowRadius">1dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyCustomToolBarTheme" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <!--ROBOTO FONTS-->
+    <style name="customBlackFont">
+        <item name="typeface">fonts/Roboto-Black.ttf</item>
+    </style>
+
+    <style name="customBoldFont">
+        <item name="typeface">fonts/Roboto-Bold.ttf</item>
+    </style>
+
+    <style name="customLightFont">
+        <item name="typeface">fonts/Roboto-Light.ttf</item>
+    </style>
+
+    <style name="customMediumFont">
+        <item name="typeface">fonts/Roboto-Medium.ttf</item>
+    </style>
+
+    <style name="customRegularFont">
+        <item name="typeface">fonts/Roboto-Regular.ttf</item>
+    </style>
+
+    <style name="customItalicFont">
+        <item name="typeface">fonts/Roboto-Italic.ttf</item>
+    </style>
+
+    <style name="customThinFont">
+        <item name="typeface">fonts/Roboto-Thin.ttf</item>
+    </style>
+
+    <style name="customCondensedLightFont">
+        <item name="typeface">fonts/RobotoCondensed-Light.ttf</item>
+    </style>
+
+
+    <style name="customCondensedLightFont.customSmallText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/table_text</item>
+    </style>
+
+    <style name="customCondensedLightFont.customNormalText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/table_text</item>
+    </style>
+
+    <style name="customCondensedLightFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/table_text</item>
+    </style>
+
+    <!--REGULAR-->
+    <style name="customRegularFont.customSmallText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customRegularFont.customNormalText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customRegularFont.customIntermediateText">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customRegularFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customRegularFont.customVeryMediumText">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customRegularFont.customBigText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!--BOLD-->
+    <style name="customBoldFont.customSmallText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customBoldFont.customNormalText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customBoldFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customBoldFont.customVeryMediumText">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!--LIGHT-->
+    <style name="customLightFont.customSmallText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customNormalText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customBigText">
+        <item name="android:textSize">100dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customVeryBigText">
+        <item name="android:textSize">150dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customIntermediateText">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customVeryMediumText">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customLightFont.customHightText">
+        <item name="android:textSize">70dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!--MEDIUM-->
+    <style name="customMediumFont.customSmallText">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customMediumFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!--THIN-->
+    <style name="customThinFont.customSmallText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customThinFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customThinFont.customVeryMediumText">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customThinFont.customVeryVeryMediumText">
+        <item name="android:textSize">60dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customThinFont.customBigText">
+        <item name="android:textSize">100dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+    <style name="customThinFont.customVeryBigText">
+        <item name="android:textSize">150dp</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!--BLACK-->
+    <style name="customBlackFont.customMediumText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/table_text</item>
+    </style>
+
+    <style name="customBlackFont.customBigText">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/table_text</item>
+    </style>
+    <!--END-->
+
+    <style name="PhotoGridLayout">
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:listSelector">@null</item>
+    </style>
+
+    <!--MARGIN LOGIN FORM-->
+    <style name="relative_layout_form_login">
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="edit_text_login_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:textColorHint">@color/edit_text_color_hint</item>
+        <item name="android:background">@drawable/edit_text_login_email</item>
+    </style>
+
+    <style name="edit_text_password_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:textColorHint">@color/edit_text_color_hint</item>
+        <item name="android:background">@drawable/edit_text_login_password</item>
+    </style>
+
+    <style name="button_login_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/blue_dark_max</item>
+        <item name="android:background">@drawable/button_accedi</item>
+    </style>
+
+    <!--FINE-->
+
+    <style name="button_round_white">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/blue_dark_max</item>
+        <item name="android:background">@drawable/button_round</item>
+    </style>
+
+    <style name="button_round_blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_round_bluedark_2dp</item>
+    </style>
+
+    <style name="button_round_green">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_round_green_2dp</item>
+    </style>
+
+    <style name="button_round_gray">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/gray6</item>
+        <item name="android:background">@drawable/button_round_gray_2dp</item>
+    </style>
+
+
+    <style name="edit_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_margin">7dp</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:paddingLeft">7dp</item>
+        <item name="android:background">@drawable/round</item>
+    </style>
+
+    <style name="edit_text_multiline_style">
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">76dp</item>
+        <item name="android:background">@color/table_zebra</item>
+        <item name="android:layout_margin">7dp</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:paddingLeft">7dp</item>
+    </style>
+
+    <style name="wrapper_layout_padding">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/white_background</item>
+    </style>
+
+    <!--SCROLL LAYOUT-->
+    <style name="global_scroll_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/white_background</item>
+    </style>
+
+    <!--VERTICAL LAYOUT-->
+    <style name="global_vertical_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@color/white_background</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--HORIZONTAL LAYOUT-->
+    <style name="global_horizontal_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white_background</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--RELATIVE LAYOUT-->
+    <style name="global_relative_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white_background</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--ADAPTERS-->
+    <style name="global_adapter_relative_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">@dimen/list_wrap_padding</item>
+    </style>
+
+    <style name="global_adapter_vertical_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/list_wrap_padding</item>
+    </style>
+
+    <style name="global_adapter_horizontal_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">@dimen/list_wrap_padding</item>
+    </style>
+
+    <!-- PARTNERS -->
+    <style name="partners_adapter_relative_layout_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--LABEL degli EditText eredito da -> customLightFont.customNormalText -->
+    <style name="customLightFont.customNormalText.label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="customLightFont.customSmallText.label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>

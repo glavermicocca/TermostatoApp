@@ -1,0 +1,14 @@
+<resources>
+
+    <declare-styleable name="TypefacedTextView">
+        <attr name="typeface" format="string" />
+    </declare-styleable>
+
+    <!-- Cell Attribute -->
+    <declare-styleable name="CellGrid">
+        <attr name="cell_color" format="color" />
+        <attr name="cell_selected_color" format="color" />
+        <attr name="cell_selected_round" format="integer" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="SERVER_IP">http://192.168.1.81:8000</string>
+
+    <string name="api_post_set_custom_text">/setCustomText</string>
+
+
+</resources>

@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    style="@style/wrapper_layout_padding"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout5"
+        android:layout_weight="2">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/relative_layout_esypoint"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true">
+
+            <!-- ESYPOINT -->
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_text"
+                android:layout_centerHorizontal="true"
+                android:width="200dp"
+                android:singleLine="true"/>
+
+            <!-- ExtraBonus -->
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        style="@style/button_round_blue"
+        android:text="Invia text"
+        android:id="@+id/btn_invia_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:padding="2dp"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/relativeLayout5"
+        android:layout_alignLeft="@+id/relativeLayout5"
+        android:layout_alignStart="@+id/relativeLayout5"
+        android:layout_alignRight="@+id/relativeLayout5"
+        android:layout_alignEnd="@+id/relativeLayout5" />
+
+</RelativeLayout>

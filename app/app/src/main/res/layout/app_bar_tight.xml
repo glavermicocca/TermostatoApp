@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/layout_toolbar"
+    android:layout_width="fill_parent"
+    android:layout_height="65dp"
+    android:background="@color/blue_light"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/blue_dark"></RelativeLayout>
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/blue_dark"
+        android:layout_marginTop="10dp"
+        style="@style/MyCustomToolBarTheme">
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/toolbar"
+        android:layout_marginRight="5dp"
+        android:layout_alignRight="@+id/toolbar"
+        android:layout_marginTop="5dp">
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testo corto"
+            android:id="@+id/textViewTitle"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="false"
+            android:textSize="30dp"
+            android:singleLine="true"
+            style="@style/customLightFont.customMediumText"
+            android:paddingRight="20dp"
+            android:gravity="right" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_alignTop="@+id/toolbar"
+        android:paddingTop="6dp"
+        android:layout_marginTop="5dp">
+
+        <com.shamanland.fonticon.FontIconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iconBreadcrumb"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:layout_gravity="center"
+            app:overridePressed="true"
+            app:pressedGlowColor="#F00"
+            app:pressedGlowRadius="10sp"
+            android:paddingRight="12dp" />
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TESTO_LUNGO"
+            android:id="@+id/textViewBreadcrumb"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_alignParentLeft="true"
+            android:singleLine="true"
+            style="@style/customLightFont.customIntermediateText"
+            android:gravity="left" />
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123456"
+            android:id="@+id/textViewTesseraId"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_alignParentLeft="true"
+            android:singleLine="true"
+            style="@style/customLightFont.customSmallText"
+            android:gravity="left" />
+
+    </LinearLayout>
+
+</RelativeLayout>

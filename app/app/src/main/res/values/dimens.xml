@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="paper_button_height">64dp</dimen>
+    <dimen name="paper_button_margin_top">24dp</dimen>
+    <dimen name="component_big_margin">34dp</dimen>
+
+    <!-- ADAPTER PADDING ELEMENTS -->
+    <dimen name="list_wrap_padding">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--ADAPTER PARTNERS-->
+    <dimen name="adapter_padding_left">20dp</dimen>
+    <dimen name="adapter_padding_top">30dp</dimen>
+
+    <!--FOOTER ANIMATION-->
+    <dimen name="destionation">170dp</dimen>
+    <dimen name="start">50dp</dimen>
+
+    <!--GLOBAL PADDING-->
+    <dimen name="global_padding_top">10dp</dimen>
+    <dimen name="global_padding_left">10dp</dimen>
+    <dimen name="global_padding_right">10dp</dimen>
+
+
+</resources>

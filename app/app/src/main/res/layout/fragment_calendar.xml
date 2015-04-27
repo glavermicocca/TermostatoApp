@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    style="@style/wrapper_layout_padding"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout5"
+        android:layout_weight="2">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_light" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/relative_layout_esypoint"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true">
+
+            <!-- ESYPOINT -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_dark"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:layout_alignLeft="@+id/textViewBarCode"
+                android:layout_alignRight="@+id/textViewBarCode" />
+
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0459789563"
+                android:id="@+id/textViewBarCode"
+                android:gravity="center"
+                style="@style/customLightFont.customMediumText"
+                android:textColor="@color/gray"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="false"
+                android:layout_centerHorizontal="true" />
+
+            <!-- ExtraBonus -->
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/barcode"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:focusable="false"
+        android:layout_below="@+id/relativeLayout5"
+        android:layout_margin="15dp" />
+
+    <Button
+        style="@style/button_round_blue"
+        android:text="Attiva NFC"
+        android:id="@+id/button_attiva_nfc"
+        android:layout_width="180dp"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:padding="2dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_below="@+id/barcode"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
