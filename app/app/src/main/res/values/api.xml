@@ -7,5 +7,6 @@
 
     <string name="api_post_get_schedule">/getSchedule</string>
     <string name="api_post_set_schedule">/setSchedule</string>
+    <string name="api_post_remove_schedule">/removeSchedule</string>
 
 </resources>

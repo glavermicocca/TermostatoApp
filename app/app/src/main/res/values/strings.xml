@@ -14,7 +14,7 @@
     <string name="TESTO_LUNGO">TESTO LUNGO</string>
 
     <string name="Sensors_Clock">Sensors Clock</string>
-    <string name="Calendar">Calendar</string>
+    <string name="Schedule">Schedule</string>
     <string name="Dashboard">Dashboard</string>
     <string name="Display_Text">Display text</string>
 </resources>

@@ -26,5 +26,4 @@ dependencies {
     compile 'com.github.nkzawa:socket.io-client:0.4.2'
     compile 'com.shamanland:fonticon:0.1.6'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
-    compile 'com.koushikdutta.async:androidasync:2.+'
 }

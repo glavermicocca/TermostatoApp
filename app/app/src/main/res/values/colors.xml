@@ -32,6 +32,8 @@
     <color name="round_icon_pressed">#4D7BB4</color>
 
     <!--LABELS-->
+    <color name="gray9">#999999</color>
+    <!--LABELS-->
     <color name="gray6">#666666</color>
     <!--TEXTS-->
     <color name="gray3">#333333</color>

@@ -52,7 +52,7 @@ public class NavigationDrawerFragment extends Fragment {
                      R.string.icon_calendar,
                      R.string.icon_dashboard,
                      R.string.icon_text};
-        String[] titles={"Sensors Clock","Calendar","Dashboard","Display text"};
+        String[] titles={"Sensors Clock","Schedule","Dashboard","Display text"};
         for(int i=0;i<titles.length && i<icons.length;i++)
         {
             Information current=new Information();

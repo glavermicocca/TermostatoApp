@@ -1,33 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="55dip"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblListItem"/>
-
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="1"
-        android:id="@+id/table_layout_schedule">
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/row"
-            android:weightSum="1">
-
-            <include layout="@layout/include_schedule_header"
+    <LinearLayout
+                android:id="@+id/LinearLayout_header"
+                android:weightSum="4"
+                android:padding="10dp"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/include_table_header"
-                android:layout_weight="1"></include>
-        </TableRow>
+                android:layout_height="wrap_content"
+                style="@style/global_horizontal_layout_style">
 
-        </TableLayout>
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    style="@style/customRegularFont.customSmallText"
+                    android:singleLine="true"
+                    android:text="Start time"
+                    android:textColor="@color/gray9"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/start_time_header"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    style="@style/customRegularFont.customSmallText"
+                    android:singleLine="true"
+                    android:text="End time"
+                    android:textColor="@color/gray9"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/end_time_header"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    style="@style/customRegularFont.customSmallText"
+                    android:singleLine="true"
+                    android:textColor="@color/gray9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/temperature_header"
+                    android:text="Temperature"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    style="@style/customRegularFont.customSmallText"
+                    android:singleLine="true"
+                    android:textColor="@color/gray9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/elimina_header"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout_content"
+        style="@style/global_horizontal_layout_style"
+        android:padding="10dp"
+        android:weightSum="4">
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:id="@+id/start_time"
+            style="@style/customRegularFont.customSmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="00:00"
+            android:textColor="@color/gray3" />
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:id="@+id/end_time"
+            style="@style/customRegularFont.customSmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="00:00"
+            android:textColor="@color/gray3" />
+
+        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:id="@+id/temperature"
+            style="@style/customRegularFont.customSmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:text="°C"
+            android:textColor="@color/gray3" />
+
+        <com.shamanland.fonticon.FontIconView
+            android:id="@+id/remove"
+            style="@style/customIconFontWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/icon_remove"
+            android:textColor="@color/gray3"
+            android:textIsSelectable="false"
+            android:textSize="25dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

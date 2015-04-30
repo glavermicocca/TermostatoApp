@@ -11,7 +11,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
-import app.giacomo.lavermicocca.termostato.Fragment.Calendar;
+import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
+import app.giacomo.lavermicocca.termostato.Fragment.CustomPickerSchedule;
+import app.giacomo.lavermicocca.termostato.Fragment.Schedule;
 import app.giacomo.lavermicocca.termostato.Fragment.Dashboard;
 import app.giacomo.lavermicocca.termostato.Fragment.DisplayText;
 import app.giacomo.lavermicocca.termostato.Fragment.NavigationDrawerFragment;
@@ -19,9 +21,10 @@ import app.giacomo.lavermicocca.termostato.Fragment.SensorsClock;
 
 public class ActivityDashboard extends BaseActionBarActivity implements
                                                               SensorsClock.OnFragmentInteractionListener,
-                                                              Calendar.OnFragmentInteractionListener,
+                                                              Schedule.OnFragmentInteractionListener,
                                                               Dashboard.OnFragmentInteractionListener,
-                                                              DisplayText.OnFragmentInteractionListener {
+                                                              DisplayText.OnFragmentInteractionListener,
+        CustomPickerSchedule.OnFragmentCustomPickerInteractionListener {
 
     public FragmentManager fm;
 
@@ -108,7 +111,7 @@ public class ActivityDashboard extends BaseActionBarActivity implements
             // in its place.
 
             FragmentTransaction ft = fm.beginTransaction();
-            Fragment fr = Calendar.newInstance("", "");
+            Fragment fr = Schedule.newInstance("", "");
             ft.addToBackStack("goToCalendar");
             ft.replace(R.id.relLayout, fr);
             ft.commit();
@@ -165,6 +168,11 @@ public class ActivityDashboard extends BaseActionBarActivity implements
     public void onClickGoToCard(View view)
     {
         ActivityDashboard.this.goToSensorsClock();
+    }
+
+    @Override
+    public void onFragmentCustomPickerInteraction(String customPickerName, ScheduleItemBean scheduleItemBean) {
+
     }
 
     //---------------- SETUP VIEW -----------------------

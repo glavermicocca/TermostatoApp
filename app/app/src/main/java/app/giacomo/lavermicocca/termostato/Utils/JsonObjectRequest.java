@@ -29,6 +29,7 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
     }
 
     public JsonObjectRequest(int methos, String url, String bodyPost, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+
         super(methos, url, bodyPost, listener, errorListener);
     }
 
@@ -58,5 +59,11 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
         }
 
         return volleyError;
+    }
+
+    @Override
+    public String getBodyContentType()
+    {
+        return "application/x-www-form-urlencoded; charset=UTF-8";
     }
 }

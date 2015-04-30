@@ -1,19 +1,20 @@
 package app.giacomo.lavermicocca.termostato.Adapter;
 
 import android.content.Context;
-import android.graphics.Typeface;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.TableLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
 
-import app.giacomo.lavermicocca.termostato.Bean.ScheduleBean;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
+import app.giacomo.lavermicocca.termostato.Business.ScheduleBusiness;
+import app.giacomo.lavermicocca.termostato.Fragment.CustomPickerSchedule;
 import app.giacomo.lavermicocca.termostato.R;
 
 /**
@@ -24,15 +25,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         private Context _context;
         private List<String> _listDataHeader; // header titles
         // child data in format of header title, child title
-        private HashMap<String, List<String>> _listDataChild;
-        private ScheduleBean scheduleBean;
+        private HashMap<String, List<ScheduleItemBean>> _listDataChild;
+        private ScheduleBusiness scheduleBusiness;
+        private Fragment fragment;
 
         public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                     HashMap<String, List<String>> listChildData, ScheduleBean scheduleBean) {
+                                     HashMap<String, List<ScheduleItemBean>> listChildData, ScheduleBusiness scheduleBusiness, Fragment fragment) {
             this._context = context;
             this._listDataHeader = listDataHeader;
             this._listDataChild = listChildData;
-            this.scheduleBean = scheduleBean;
+            this.scheduleBusiness = scheduleBusiness;
+            this.fragment = fragment;
         }
 
         @Override
@@ -45,45 +48,39 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             return childPosition;
         }
 
-        private List<ScheduleItemBean> getScheduleItemBean(int groupPosition)
-        {
-            List<ScheduleItemBean> scheduleItemBean = null;
-            switch (groupPosition)
-            {
-                case 0:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getMonday();
-                case 1:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getTuesday();
-                case 2:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getWednesday();
-                case 3:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getThursday();
-                case 4:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getFriday();
-                case 5:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getSaturday();
-                case 6:
-                    return (List<ScheduleItemBean>) this.scheduleBean.getSunday();
-            }
-            return scheduleItemBean;
-        }
-
         @Override
-        public View getChildView(int groupPosition, final int childPosition,
-                                 boolean isLastChild, View convertView, ViewGroup parent) {
+        public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
-            final String childText = (String) getChild(groupPosition, childPosition);
-            final List<ScheduleItemBean> scheduleItemBean = getScheduleItemBean(groupPosition);
+            final ScheduleItemBean scheduleItemBean = (ScheduleItemBean) getChild(groupPosition, childPosition);
 
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = infalInflater.inflate(R.layout.list_item, null);
             }
 
-            TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
-            txtListChild.setText(childText);
+            TextView tvStartTime = (TextView) convertView.findViewById(R.id.start_time);
+            tvStartTime.setText(scheduleItemBean.getStartTime());
+            TextView tvEndTime = (TextView) convertView.findViewById(R.id.end_time);
+            tvEndTime.setText(scheduleItemBean.getEndTIme());
+            TextView tvTemperature = (TextView) convertView.findViewById(R.id.temperature);
+            tvTemperature.setText(scheduleItemBean.getTemperature() + "°");
 
-            TableLayout tableLayout = (TableLayout) convertView.findViewById(R.id.table_layout_schedule);
+            if(childPosition > 0)
+            {
+                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.LinearLayout_header);
+                linearLayout.setVisibility(View.GONE);
+            }
+
+            final com.shamanland.fonticon.FontIconView fontIconView = (com.shamanland.fonticon.FontIconView) convertView.findViewById(R.id.remove);
+            fontIconView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<ScheduleItemBean> sib = _listDataChild.get(_listDataHeader.get(groupPosition));
+                    sib.remove(childPosition);
+                    ExpandableListAdapter.this.notifyDataSetInvalidated();
+                    scheduleBusiness.removeSchedule("monday",""+childPosition);
+                }
+            });
 
             return convertView;
         }
@@ -119,9 +116,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             }
 
             TextView lblListHeader = (TextView) convertView.findViewById(R.id.title_group);
-            lblListHeader.setTypeface(null, Typeface.BOLD);
             lblListHeader.setText(headerTitle);
 
+            com.shamanland.fonticon.FontIconView buttonIcon = (com.shamanland.fonticon.FontIconView) convertView.findViewById(R.id.button_add);
+            buttonIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    scheduleBusiness.setSchedule("monday", "12:01", "12:02", "25");
+                    CustomPickerSchedule customNotifyReshop = CustomPickerSchedule.newInstance("PickerSchedule");
+                    customNotifyReshop.show(fragment.getFragmentManager(), "cities_picker");
+                }
+            });
             return convertView;
         }
 

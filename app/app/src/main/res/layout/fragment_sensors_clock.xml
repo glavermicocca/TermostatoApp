@@ -90,13 +90,19 @@
                 android:textColor="@color/gray3"
                 android:gravity="bottom" />
 
-            <include layout="@layout/include_percentage"
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                style="@style/customRegularFont.customSmallText"
+                android:singleLine="true"
+                android:text=" °"
+                android:textColor="@color/gray3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="top"
                 android:layout_toRightOf="@+id/text_view_temp"
                 android:layout_toEndOf="@+id/text_view_temp"
                 android:layout_alignTop="@+id/text_view_temp"
-                android:layout_alignBottom="@+id/text_view_temp" />
+                android:layout_alignBottom="@+id/text_view_temp"/>
+
         </RelativeLayout>
 
         <View
@@ -137,13 +143,19 @@
                 android:textColor="@color/gray3"
                 android:gravity="bottom" />
 
-            <include layout="@layout/include_percentage"
+            <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                style="@style/customRegularFont.customSmallText"
+                android:singleLine="true"
+                android:text="/100"
+                android:textColor="@color/gray3"
+                android:gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/text_view_umid"
                 android:layout_toEndOf="@+id/text_view_umid"
                 android:layout_alignTop="@+id/text_view_umid"
-                android:layout_alignBottom="@+id/text_view_umid" />
+                android:layout_alignBottom="@+id/text_view_umid"/>
+
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

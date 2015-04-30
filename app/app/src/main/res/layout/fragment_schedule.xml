@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/LinearLayout1"
     style="@style/wrapper_layout_padding"
-    android:gravity="center">
+    android:gravity="center"
+    android:paddingTop="10dp">
 
     <ExpandableListView
         android:id="@+id/lvExp"

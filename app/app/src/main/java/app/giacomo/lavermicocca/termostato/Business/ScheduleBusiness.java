@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import app.giacomo.lavermicocca.termostato.App.AppControllerStore;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleBean;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
-import app.giacomo.lavermicocca.termostato.Fragment.Calendar;
+import app.giacomo.lavermicocca.termostato.Fragment.Schedule;
 import app.giacomo.lavermicocca.termostato.R;
 import app.giacomo.lavermicocca.termostato.Utils.DebugLog;
 import app.giacomo.lavermicocca.termostato.Utils.JsonObjectRequest;
@@ -46,7 +46,7 @@ public class ScheduleBusiness {
 
     //---------------------------------------------------------------------------------------------
 
-    public void getSchedule(final Calendar calendar) {
+    public void getSchedule(final Schedule calendar) {
         DebugLog.getMethodTrace(Thread.currentThread());
 
         String url = res.getString(R.string.SERVER_IP) + res.getString(R.string.api_post_get_schedule);
@@ -72,6 +72,62 @@ public class ScheduleBusiness {
         AppControllerStore.getInstance().addToRequestQueue(getSchedule);
     }//getSchedule
 
+    public void removeSchedule(String day, String pos) {
+        DebugLog.getMethodTrace(Thread.currentThread());
+
+        String url = res.getString(R.string.SERVER_IP) + res.getString(R.string.api_post_remove_schedule);
+
+        Log.i("DEBUG", "URL api : " + url);
+
+        String bodyParam = "day="+day+"&pos="+pos;
+
+        // Creating volley request obj
+        final JsonObjectRequest getSchedule = new JsonObjectRequest(Request.Method.POST, url, bodyParam, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.e("",response.toString());
+            }
+        },
+        new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //StaticMethods.hidePDialog(pDialog);
+                Toast.makeText(mContext, "FAIL", Toast.LENGTH_LONG).show();
+            }
+        });
+        AppControllerStore.getInstance().addToRequestQueue(getSchedule);
+    }//removeSchedule
+
+    public void setSchedule(String day, String startTime, String endTime, String temp) {
+        DebugLog.getMethodTrace(Thread.currentThread());
+
+        String url = res.getString(R.string.SERVER_IP) + res.getString(R.string.api_post_set_schedule);
+
+        Log.i("DEBUG", "URL api : " + url);
+
+        String bodyParam = "day=%s&startTime=%s&endTime=%s&temp=%s";
+
+        bodyParam = String.format(bodyParam, day,startTime,endTime,temp);
+
+        Log.e("JSON BODY", bodyParam);
+
+        // Creating volley request obj
+        final JsonObjectRequest getSchedule = new JsonObjectRequest(Request.Method.POST, url, bodyParam, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.e("",response.toString());
+            }
+        },
+        new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //StaticMethods.hidePDialog(pDialog);
+                Toast.makeText(mContext, "FAIL", Toast.LENGTH_LONG).show();
+            }
+        });
+        AppControllerStore.getInstance().addToRequestQueue(getSchedule);
+    }//removeSchedule
+
     private void parseResponseSchedule(JSONObject jsonObject) {
 
         if(jsonObject.has("monday"))
@@ -83,7 +139,7 @@ public class ScheduleBusiness {
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getMonday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
@@ -98,7 +154,7 @@ public class ScheduleBusiness {
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getTuesday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
@@ -107,13 +163,13 @@ public class ScheduleBusiness {
         if(jsonObject.has("wednesday"))
         {
             try {
-                JSONArray ja = (JSONArray)jsonObject.get("monday");
+                JSONArray ja = (JSONArray)jsonObject.get("wednesday");
                 for (int i = 0; i < ja.length(); i++) {
                     JSONObject jo = (JSONObject)ja.get(i);
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getWednesday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
@@ -128,7 +184,7 @@ public class ScheduleBusiness {
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getThursday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
@@ -143,7 +199,7 @@ public class ScheduleBusiness {
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getFriday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
@@ -173,12 +229,13 @@ public class ScheduleBusiness {
                     ScheduleItemBean scheduleItemBean = new ScheduleItemBean(""+jo.get("start"),
                             ""+jo.get("end"),
                             ""+jo.get("temperature"));
-                    this.scheduleBean.getSaturday().add(scheduleItemBean);
+                    this.scheduleBean.getSunday().add(scheduleItemBean);
                 }
             } catch (JSONException e) {
                 Log.e("JSON PARSE", e.getLocalizedMessage());
             }
         }
+        Log.e("","PARSED");
     }//fillSettoreMerciologicoBeanList
 
 }
