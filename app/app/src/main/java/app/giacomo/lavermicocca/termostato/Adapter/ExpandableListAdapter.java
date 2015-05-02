@@ -1,7 +1,7 @@
 package app.giacomo.lavermicocca.termostato.Adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,15 +27,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // child data in format of header title, child title
         private HashMap<String, List<ScheduleItemBean>> _listDataChild;
         private ScheduleBusiness scheduleBusiness;
-        private Fragment fragment;
+        private FragmentManager fm;
 
         public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                     HashMap<String, List<ScheduleItemBean>> listChildData, ScheduleBusiness scheduleBusiness, Fragment fragment) {
+                                     HashMap<String, List<ScheduleItemBean>> listChildData, ScheduleBusiness scheduleBusiness, FragmentManager fm) {
             this._context = context;
             this._listDataHeader = listDataHeader;
             this._listDataChild = listChildData;
             this.scheduleBusiness = scheduleBusiness;
-            this.fragment = fragment;
+            this.fm = fm;
         }
 
         @Override
@@ -65,11 +65,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             TextView tvTemperature = (TextView) convertView.findViewById(R.id.temperature);
             tvTemperature.setText(scheduleItemBean.getTemperature() + "°");
 
-            if(childPosition > 0)
-            {
-                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.LinearLayout_header);
-                linearLayout.setVisibility(View.GONE);
-            }
+//            if(childPosition > 0)
+//            {
+//                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.LinearLayout_header);
+//                linearLayout.setVisibility(View.GONE);
+//            }
 
             final com.shamanland.fonticon.FontIconView fontIconView = (com.shamanland.fonticon.FontIconView) convertView.findViewById(R.id.remove);
             fontIconView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     List<ScheduleItemBean> sib = _listDataChild.get(_listDataHeader.get(groupPosition));
                     sib.remove(childPosition);
                     ExpandableListAdapter.this.notifyDataSetInvalidated();
-                    scheduleBusiness.removeSchedule("monday",""+childPosition);
+                    //rimuovo dalla lista immediatamente
+                    scheduleBusiness.removeSchedule(_listDataHeader.get(groupPosition).toLowerCase(),""+childPosition);
                 }
             });
 
@@ -107,8 +108,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         @Override
-        public View getGroupView(int groupPosition, boolean isExpanded,
-                                 View convertView, ViewGroup parent) {
+        public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
             String headerTitle = (String) getGroup(groupPosition);
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -122,11 +122,22 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             buttonIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    scheduleBusiness.setSchedule("monday", "12:01", "12:02", "25");
-                    CustomPickerSchedule customNotifyReshop = CustomPickerSchedule.newInstance("PickerSchedule");
-                    customNotifyReshop.show(fragment.getFragmentManager(), "cities_picker");
+                    String day = _listDataHeader.get(groupPosition);
+                    CustomPickerSchedule customNotifyReshop = CustomPickerSchedule.newInstance(day, groupPosition);
+                    customNotifyReshop.show(fm, "day_picker");
                 }
             });
+
+            LinearLayout linearLayout = (LinearLayout)convertView.findViewById(R.id.linear_layout_header);
+            if(isExpanded)
+            {
+                linearLayout.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                linearLayout.setVisibility(View.GONE);
+            }
+
             return convertView;
         }
 

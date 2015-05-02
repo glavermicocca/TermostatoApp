@@ -10,7 +10,8 @@
                 android:padding="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                style="@style/global_horizontal_layout_style">
+                style="@style/global_horizontal_layout_style"
+        android:visibility="gone">
 
         <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
                     style="@style/customRegularFont.customSmallText"

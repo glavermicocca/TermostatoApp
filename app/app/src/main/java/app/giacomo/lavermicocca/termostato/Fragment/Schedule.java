@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -83,11 +82,20 @@ public class Schedule extends Fragment {
         }
     }
 
+    public HashMap<String, List<ScheduleItemBean>> listDataChild;
+    List<String> listDataHeader;
+    ScheduleBusiness scheduleBusiness;
+    ExpandableListAdapter listAdapter;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
+            this.listDataChild = ((ActivityDashboard)activity).listDataChild;
+            this.listDataHeader = ((ActivityDashboard)activity).listDataHeader;
+            this.scheduleBusiness = ((ActivityDashboard)activity).scheduleBusiness;
+            this.listAdapter = ((ActivityDashboard)activity).listAdapter;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -118,11 +126,7 @@ public class Schedule extends Fragment {
     //------------ VIEW INITS -----------------
 
     Context mContext;
-    public ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<ScheduleItemBean>> listDataChild;
-    ScheduleBusiness scheduleBusiness;
 
     private void setupView(View view)
     {
@@ -135,9 +139,8 @@ public class Schedule extends Fragment {
         // preparing list data
         prepareListData();
 
-        listAdapter = new ExpandableListAdapter(getActivity().getApplicationContext(), listDataHeader, listDataChild, scheduleBusiness, this);
-
         // setting list adapter
+
         expListView.setAdapter(listAdapter);
 
 //        // Listview Group click listener
@@ -201,20 +204,7 @@ public class Schedule extends Fragment {
      */
     private void prepareListData() {
 
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<ScheduleItemBean>>();
-
-        scheduleBusiness = new ScheduleBusiness(getActivity());
-        scheduleBusiness.getSchedule(this);
-
-        // Adding child data
-        listDataHeader.add("Monday");
-        listDataHeader.add("Tuesday");
-        listDataHeader.add("Wednesday");
-        listDataHeader.add("Thursday");
-        listDataHeader.add("Friday");
-        listDataHeader.add("Saturday");
-        listDataHeader.add("Sunday");
+        scheduleBusiness.getSchedule();
 
         listDataChild.put(listDataHeader.get(0), scheduleBusiness.getScheduleBean().getMonday()); // Header, Child data
         listDataChild.put(listDataHeader.get(1), scheduleBusiness.getScheduleBean().getTuesday());

@@ -3,276 +3,294 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:background="@color/blue_dark">
+        android:background="@color/blue_dark"
+        android:orientation="horizontal">
 
         <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+            android:id="@+id/title_window"
             style="@style/customLightFont.customMediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Titolo default"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:id="@+id/title_window" />
+            android:singleLine="true"
+            android:text="Titolo default" />
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:padding="20dp">
-
-        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-            style="@style/customLightFont.customMediumText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Start time"
-            android:layout_gravity="center"
-            android:id="@+id/start_time_label"
-            android:textColor="@color/gray6"
-            android:layout_centerHorizontal="true" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/start_time_label"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relative_layout_start_time">
+            android:padding="20dp"
+            android:visibility="visible">
 
             <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-                style="@style/customLightFont.customHightText"
-                android:tag="view_target"
+                android:id="@+id/start_time_label"
+                style="@style/customLightFont.customMediumText"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:singleLine="true"
-                android:text="00:00"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:id="@+id/start_time"
-                android:textColor="@color/gray3"
-                android:gravity="center"
-                android:layout_toRightOf="@+id/button_start_time_hours_up"
-                android:layout_toEndOf="@+id/button_start_time_hours_up"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp" />
+                android:singleLine="true"
+                android:text="Start time"
+                android:textColor="@color/gray6" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_start_time_up"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_up"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_toRightOf="@+id/start_time"
-                android:layout_toEndOf="@+id/start_time"
-                android:gravity="center_horizontal|bottom|right|fill_vertical" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_time_label"
+                android:layout_centerHorizontal="true">
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_start_time_down"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_down"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_alignBottom="@+id/start_time"
-                android:layout_toRightOf="@+id/start_time"
-                android:layout_toEndOf="@+id/start_time"
-                android:layout_below="@+id/button_start_time_up"
-                android:gravity="center_horizontal|bottom|right|fill_vertical" />
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    android:id="@+id/start_time"
+                    style="@style/customLightFont.customHightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toEndOf="@+id/button_start_time_hours_up"
+                    android:layout_toRightOf="@+id/button_start_time_hours_up"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:tag="view_target"
+                    android:text="00:00"
+                    android:textColor="@color/gray3" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_start_time_hours_up"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_up"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:gravity="center_horizontal|bottom|left|fill_vertical" />
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_start_time_up"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/start_time"
+                    android:layout_toRightOf="@+id/start_time"
+                    android:gravity="center_horizontal|bottom|right|fill_vertical"
+                    android:text="@string/icon_chevron_up"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_start_time_hours_down"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_down"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_start_time_down"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/start_time"
+                    android:layout_below="@+id/button_start_time_up"
+                    android:layout_toEndOf="@+id/start_time"
+                    android:layout_toRightOf="@+id/start_time"
+                    android:gravity="center_horizontal|bottom|right|fill_vertical"
+                    android:text="@string/icon_chevron_down"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-                android:layout_below="@+id/button_start_time_hours_up"
-                android:gravity="center_horizontal|bottom|left|fill_vertical" />
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_start_time_hours_up"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center_horizontal|bottom|left|fill_vertical"
+                    android:text="@string/icon_chevron_up"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-        </RelativeLayout>
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_start_time_hours_down"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/button_start_time_hours_up"
+                    android:gravity="center_horizontal|bottom|left|fill_vertical"
+                    android:text="@string/icon_chevron_down"
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp" android:background="@color/grayC"
-            android:layout_below="@+id/relative_layout_start_time"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/divider"></View>
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-            style="@style/customLightFont.customMediumText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="End time"
-            android:layout_gravity="center"
-            android:id="@+id/end_time_label"
-            android:textColor="@color/gray6"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/divider" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/end_time_label"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relative_layout_end_time">
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/relative_layout_start_time"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grayC"></View>
 
             <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-                style="@style/customLightFont.customHightText"
-                android:tag="view_target"
+                android:id="@+id/end_time_label"
+                style="@style/customLightFont.customMediumText"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:singleLine="true"
-                android:text="00:00"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:id="@+id/end_time"
-                android:textColor="@color/gray3"
-                android:layout_toRightOf="@+id/button_end_time_hours_up"
-                android:layout_toEndOf="@+id/button_end_time_hours_up"
-                android:gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp" />
+                android:singleLine="true"
+                android:text="End time"
+                android:textColor="@color/gray6" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_end_time_up"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_up"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_toRightOf="@+id/end_time"
-                android:layout_toEndOf="@+id/end_time"
-                android:gravity="center_horizontal|bottom|right|fill_vertical" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/end_time_label"
+                android:layout_centerHorizontal="true">
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_end_time_down"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_down"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_alignBottom="@+id/end_time"
-                android:layout_toRightOf="@+id/end_time"
-                android:layout_toEndOf="@+id/end_time"
-                android:layout_below="@+id/button_end_time_up"
-                android:gravity="center_horizontal|bottom|right|fill_vertical" />
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    android:id="@+id/end_time"
+                    style="@style/customLightFont.customHightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toEndOf="@+id/button_end_time_hours_up"
+                    android:layout_toRightOf="@+id/button_end_time_hours_up"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:tag="view_target"
+                    android:text="00:00"
+                    android:textColor="@color/gray3" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_end_time_hours_up"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_up"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:gravity="center_horizontal|bottom|left|fill_vertical" />
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_end_time_up"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/end_time"
+                    android:layout_toRightOf="@+id/end_time"
+                    android:gravity="center_horizontal|bottom|right|fill_vertical"
+                    android:text="@string/icon_chevron_up"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_end_time_hours_down"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_down"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:gravity="center_horizontal|bottom|left|fill_vertical"
-                android:layout_below="@+id/button_end_time_hours_up" />
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_end_time_down"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/end_time"
+                    android:layout_below="@+id/button_end_time_up"
+                    android:layout_toEndOf="@+id/end_time"
+                    android:layout_toRightOf="@+id/end_time"
+                    android:gravity="center_horizontal|bottom|right|fill_vertical"
+                    android:text="@string/icon_chevron_down"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-        </RelativeLayout>
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_end_time_hours_up"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:gravity="center_horizontal|bottom|left|fill_vertical"
+                    android:text="@string/icon_chevron_up"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp" android:background="@color/grayC"
-            android:layout_below="@+id/relative_layout_end_time"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/divider2"></View>
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_end_time_hours_down"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/button_end_time_hours_up"
+                    android:gravity="center_horizontal|bottom|left|fill_vertical"
+                    android:text="@string/icon_chevron_down"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
 
-        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-            style="@style/customLightFont.customMediumText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Temperature °C"
-            android:layout_gravity="center"
-            android:id="@+id/temperature_label"
-            android:textColor="@color/gray6"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/divider2" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/temperature_label"
-            android:id="@+id/relative_layout_temperature"
-            android:layout_centerInParent="true">
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/relative_layout_end_time"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grayC"></View>
 
             <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-                style="@style/customLightFont.customHightText"
-                android:tag="view_target"
+                android:id="@+id/temperature_label"
+                style="@style/customLightFont.customMediumText"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:singleLine="true"
-                android:text="20"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider2"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:id="@+id/temperature"
-                android:textColor="@color/gray3" />
+                android:singleLine="true"
+                android:text="Temperature °C"
+                android:textColor="@color/gray6" />
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_temperature_up"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_up"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_toRightOf="@+id/temperature"
-                android:layout_toEndOf="@+id/temperature"
-                android:gravity="center"
-                android:onClick="temperature_up" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/temperature_label"
+                android:layout_centerInParent="true">
 
-            <com.shamanland.fonticon.FontIconView
-                android:id="@+id/button_temperature_down"
-                style="@style/customIconFontWhite"
-                android:text="@string/icon_chevron_down"
-                android:textColor="@color/gray3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:textSize="40dp"
-                android:layout_alignBottom="@+id/temperature"
-                android:layout_toRightOf="@+id/temperature"
-                android:layout_toEndOf="@+id/temperature"
-                android:layout_below="@+id/button_temperature_up"
-                android:gravity="center"
-                android:onClick="temperature_down" />
+                <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                    android:id="@+id/temperature"
+                    style="@style/customLightFont.customHightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:tag="view_target"
+                    android:text="20"
+                    android:textColor="@color/gray3" />
+
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_temperature_up"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/temperature"
+                    android:layout_toRightOf="@+id/temperature"
+                    android:gravity="center"
+                    android:onClick="temperature_up"
+                    android:text="@string/icon_chevron_up"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
+
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/button_temperature_down"
+                    style="@style/customIconFontWhite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/temperature"
+                    android:layout_below="@+id/button_temperature_up"
+                    android:layout_toEndOf="@+id/temperature"
+                    android:layout_toRightOf="@+id/temperature"
+                    android:gravity="center"
+                    android:onClick="temperature_down"
+                    android:text="@string/icon_chevron_down"
+                    android:textColor="@color/gray3"
+                    android:textSize="40dp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_set_schedule"
+                style="@style/button_round_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relative_layout_temperature"
+                android:layout_marginTop="30dp"
+                android:padding="2dp"
+                android:text="Set" />
+
 
         </RelativeLayout>
-
-
-
-
-    </RelativeLayout>
-
+    </ScrollView>
 </LinearLayout>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-    style="@style/customRegularFont.customSmallText"
-    android:singleLine="true"
-    android:text=" %"
-    android:textColor="@color/gray3"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="bottom" />
-

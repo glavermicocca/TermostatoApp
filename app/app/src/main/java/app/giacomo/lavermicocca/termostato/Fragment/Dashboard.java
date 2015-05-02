@@ -8,8 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+
+import java.util.Calendar;
 
 import app.giacomo.lavermicocca.termostato.ActivityDashboard;
+import app.giacomo.lavermicocca.termostato.Business.DashboardBusiness;
 import app.giacomo.lavermicocca.termostato.R;
 
 public class Dashboard extends Fragment {
@@ -80,6 +85,7 @@ public class Dashboard extends Fragment {
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
+            dashboardBusiness = new DashboardBusiness(activity);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -110,11 +116,75 @@ public class Dashboard extends Fragment {
     //------------ VIEW INITS -----------------
 
     Context mContext;
+    DashboardBusiness dashboardBusiness;
 
     private void setupView(View view)
     {
         ((ActivityDashboard)getActivity()).setTitleResource(R.string.Sensors_Clock);
         this.mContext = getActivity().getApplicationContext();
 
+        CheckBox checkBoxHeatingSystem = (CheckBox) view.findViewById(R.id.check_box_heating_system_on_off);
+        checkBoxHeatingSystem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dashboardBusiness.setSwitchOnOff();
+            }
+        });
+
+        final CheckBox checkBoxSeasonSummer = (CheckBox) view.findViewById(R.id.check_box_season_summer);
+        final CheckBox checkBoxSeasonWinter = (CheckBox) view.findViewById(R.id.check_box_season_winter);
+
+        checkBoxSeasonSummer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkBoxSeasonWinter.setChecked(false);
+                dashboardBusiness.setSeason("Summer");
+            }
+        });
+
+        checkBoxSeasonWinter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkBoxSeasonSummer.setChecked(false);
+                dashboardBusiness.setSeason("Winter");
+            }
+        });
+
+        final CheckBox checkBoxDisplayOnOff = (CheckBox) view.findViewById(R.id.check_box_display_on_off);
+        final CheckBox checkBoxTempUmid = (CheckBox) view.findViewById(R.id.check_box_display_temperature_humidity);
+        final CheckBox checkBoxTempCustomText = (CheckBox) view.findViewById(R.id.check_box_display_custom_text);
+        checkBoxDisplayOnOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dashboardBusiness.setDisplayLight("alwaysOn=true");
+                checkBoxTempUmid.setChecked(false);
+                checkBoxTempCustomText.setChecked(false);
+            }
+        });
+        checkBoxTempUmid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dashboardBusiness.setDisplayLight("tempUmid=true");
+                checkBoxTempCustomText.setChecked(false);
+                checkBoxDisplayOnOff.setChecked(false);
+            }
+        });
+        checkBoxTempCustomText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dashboardBusiness.setDisplayLight("customText=true");
+                checkBoxTempUmid.setChecked(false);
+                checkBoxDisplayOnOff.setChecked(false);
+            }
+        });
+
+        final Button buttonSetDate = (Button) view.findViewById(R.id.btn_set_current_date);
+        buttonSetDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                dashboardBusiness.setSystemDate(cal.getTime());
+            }
+        });
     }
 }

@@ -14,10 +14,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import app.giacomo.lavermicocca.termostato.ActivityDashboard;
 import app.giacomo.lavermicocca.termostato.App.AppControllerStore;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleBean;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
-import app.giacomo.lavermicocca.termostato.Fragment.Schedule;
 import app.giacomo.lavermicocca.termostato.R;
 import app.giacomo.lavermicocca.termostato.Utils.DebugLog;
 import app.giacomo.lavermicocca.termostato.Utils.JsonObjectRequest;
@@ -46,7 +46,7 @@ public class ScheduleBusiness {
 
     //---------------------------------------------------------------------------------------------
 
-    public void getSchedule(final Schedule calendar) {
+    public void getSchedule() {
         DebugLog.getMethodTrace(Thread.currentThread());
 
         String url = res.getString(R.string.SERVER_IP) + res.getString(R.string.api_post_get_schedule);
@@ -59,7 +59,7 @@ public class ScheduleBusiness {
             public void onResponse(JSONObject response) {
                     Log.e("",response.toString());
                     parseResponseSchedule(response);
-                    calendar.listAdapter.notifyDataSetChanged();
+                    ((ActivityDashboard)activity).listAdapter.notifyDataSetChanged();
             }
         },
         new Response.ErrorListener() {
@@ -98,7 +98,7 @@ public class ScheduleBusiness {
         AppControllerStore.getInstance().addToRequestQueue(getSchedule);
     }//removeSchedule
 
-    public void setSchedule(String day, String startTime, String endTime, String temp) {
+    public void setSchedule(String day, final String startTime, final String endTime, final String temp, final int groupPosition) {
         DebugLog.getMethodTrace(Thread.currentThread());
 
         String url = res.getString(R.string.SERVER_IP) + res.getString(R.string.api_post_set_schedule);
@@ -116,6 +116,10 @@ public class ScheduleBusiness {
             @Override
             public void onResponse(JSONObject response) {
                 Log.e("",response.toString());
+                ScheduleItemBean sib = new ScheduleItemBean(startTime, endTime, temp);
+                Object keyObject = ((ActivityDashboard)activity).listDataHeader.get(groupPosition);
+                ((ActivityDashboard)activity).listDataChild.get(keyObject).add(sib);
+                ((ActivityDashboard)activity).listAdapter.notifyDataSetChanged();
             }
         },
         new Response.ErrorListener() {

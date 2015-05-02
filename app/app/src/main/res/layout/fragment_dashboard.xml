@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Heaing system"
+                    android:text="Heating system"
                     android:textColor="@color/gray3" />
 
             </RelativeLayout>
@@ -112,8 +112,8 @@
                 android:id="@+id/relativeLayout10"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background"
-                android:layout_below="@+id/relativeLayout5">
+                android:layout_below="@+id/relativeLayout5"
+                android:background="@color/background">
 
                 <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
                     android:id="@+id/label_seasons"
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Heaing system"
+                    android:text="Seasons"
                     android:textColor="@color/gray3" />
 
             </RelativeLayout>
@@ -135,67 +135,151 @@
                 android:layout_margin="15dp"
                 android:layout_weight="2">
 
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignLeft="@+id/relative_layout_winter"
-                    android:layout_alignStart="@+id/relative_layout_winter"
-                    android:background="@color/line_light" />
+                <!--SUMMER-->
 
                 <RelativeLayout
-                    android:id="@+id/relative_layout_winter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentStart="true">
+                    android:id="@+id/relative_layout_wrapper_summer">
 
                     <View
-                        android:layout_width="180dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:layout_alignEnd="@+id/label_winter"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignRight="@+id/label_winter"
-                        android:background="@color/line_dark" />relative_layout_checkbox2
+                        android:layout_alignLeft="@+id/relative_layout_summer"
+                        android:layout_alignStart="@+id/relative_layout_summer"
+                        android:background="@color/line_light" />
 
-                    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-                        android:id="@+id/label_winter"
-                        style="@style/customLightFont.customSmallText"
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_summer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="Switch on/off"
-                        android:textColor="@color/line_dark" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true">
 
-                </RelativeLayout>
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignEnd="@+id/label_summer"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignRight="@+id/label_summer"
+                            android:background="@color/line_dark" />relative_layout_checkbox2
+
+                        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                            android:id="@+id/label_summer"
+                            style="@style/customLightFont.customSmallText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Summer"
+                            android:textColor="@color/line_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_checkbox5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignLeft="@+id/check_box_season_summer"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_alignParentTop="true"
+                            android:layout_alignStart="@+id/check_box_season_summer"
+                            android:background="@color/line_dark" />
+
+                        <CheckBox
+                            android:id="@+id/check_box_season_summer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+
+                    </RelativeLayout>
+
+                <!--WINTER-->
 
                 <RelativeLayout
-                    android:id="@+id/relative_layout_checkbox2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="false"
+                    android:id="@+id/relative_layout_wrapper_winter"
+                    android:layout_below="@+id/relative_layout_wrapper_summer"
+                    android:layout_marginTop="15dp">
 
                     <View
-                        android:id="@+id/view2"
-                        android:layout_width="180dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:layout_alignLeft="@+id/check_box_season_winter"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignLeft="@+id/relative_layout_winter"
+                        android:layout_alignStart="@+id/relative_layout_winter"
+                        android:background="@color/line_light" />
 
-                        android:layout_alignParentTop="true"
-                        android:layout_alignStart="@+id/check_box_season_winter"
-                        android:background="@color/line_dark" />
-
-                    <CheckBox
-                        android:id="@+id/check_box_season_winter"
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_winter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true" />
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignEnd="@+id/label_winter"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignRight="@+id/label_winter"
+                            android:background="@color/line_dark" />relative_layout_checkbox2
+
+                        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                            android:id="@+id/label_winter"
+                            style="@style/customLightFont.customSmallText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Winter"
+                            android:textColor="@color/line_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_checkbox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignLeft="@+id/check_box_season_winter"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_alignParentTop="true"
+                            android:layout_alignStart="@+id/check_box_season_winter"
+                            android:background="@color/line_dark" />
+
+                        <CheckBox
+                            android:id="@+id/check_box_season_winter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
             </RelativeLayout>
@@ -206,8 +290,8 @@
                 android:id="@+id/relativeLayout20"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background"
-                android:layout_below="@+id/relativeLayout11">
+                android:layout_below="@+id/relativeLayout11"
+                android:background="@color/background">
 
                 <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
                     android:id="@+id/title_display"
@@ -216,7 +300,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Heaing system"
+                    android:text="Display"
                     android:textColor="@color/gray3" />
 
             </RelativeLayout>
@@ -225,73 +309,229 @@
                 android:id="@+id/relativeLayout21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_below="@+id/relativeLayout20"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:layout_weight="2">
 
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignLeft="@+id/relative_layout_display"
-                    android:layout_alignStart="@+id/relative_layout_display"
-                    android:background="@color/line_light" />
+                <!--OFF-->
 
                 <RelativeLayout
-                    android:id="@+id/relative_layout_display"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentStart="true">
-
-                    <View
-                        android:layout_width="180dp"
-                        android:layout_height="1dp"
-                        android:layout_alignEnd="@+id/label_display"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignRight="@+id/label_display"
-                        android:background="@color/line_dark" />relative_layout_checkbox2
-
-                    <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
-                        android:id="@+id/label_display"
-                        style="@style/customLightFont.customSmallText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="7dp"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="Switch on/off"
-                        android:textColor="@color/line_dark" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/relative_layout_checkbox3"
+                    android:id="@+id/relative_layout_wrapper_off"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <View
-                        android:id="@+id/view3"
-                        android:layout_width="180dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:layout_alignLeft="@+id/check_box_display"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignLeft="@+id/relative_layout_display"
+                        android:layout_alignStart="@+id/relative_layout_display"
+                        android:background="@color/line_light" />
 
-                        android:layout_alignParentTop="true"
-                        android:layout_alignStart="@+id/check_box_display"
-                        android:background="@color/line_dark" />
-
-                    <CheckBox
-                        android:id="@+id/check_box_display"
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_display"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true" />
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignEnd="@+id/label_display"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignRight="@+id/label_display"
+                            android:background="@color/line_dark" />relative_layout_checkbox2
+
+                        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                            android:id="@+id/label_display"
+                            style="@style/customLightFont.customSmallText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="off"
+                            android:textColor="@color/line_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_checkbox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignLeft="@+id/check_box_display_on_off"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_alignParentTop="true"
+                            android:background="@color/line_dark" />
+
+                        <CheckBox
+                            android:id="@+id/check_box_display_on_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--TEMPERATURE HUMIDITY-->
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_wrapper_temperature_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relative_layout_wrapper_off"
+                    android:layout_marginTop="15dp">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentTop="false"
+                        android:background="@color/line_light" />
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignEnd="@+id/label_temperature"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignRight="@+id/label_temperature"
+                            android:background="@color/line_dark" />relative_layout_checkbox2
+
+                        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                            android:id="@+id/label_temperature"
+                            style="@style/customLightFont.customSmallText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Temperature/Humidity"
+                            android:textColor="@color/line_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_checkbox_temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignLeft="@+id/check_box_display_temperature_humidity"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_alignParentTop="true"
+                            android:layout_alignStart="@+id/check_box_display_temperature_humidity"
+                            android:background="@color/line_dark" />
+
+                        <CheckBox
+                            android:id="@+id/check_box_display_temperature_humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
+
+                <!--CUSTOM TEXT-->
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_wrapper_custom_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relative_layout_wrapper_temperature_humidity"
+                    android:layout_marginTop="15dp">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentTop="false"
+                        android:background="@color/line_light" />
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_custom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignEnd="@+id/label_custom_text"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignRight="@+id/label_custom_text"
+                            android:background="@color/line_dark" />relative_layout_checkbox2
+
+                        <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
+                            android:id="@+id/label_custom_text"
+                            style="@style/customLightFont.customSmallText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Custom text"
+                            android:textColor="@color/line_dark" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout_checkbox_custom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="180dp"
+                            android:layout_height="1dp"
+                            android:layout_alignLeft="@+id/check_box_display_custom_text"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignStart="@+id/check_box_display_custom_text"
+                            android:background="@color/line_dark" />
+
+                        <CheckBox
+                            android:id="@+id/check_box_display_custom_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
             </RelativeLayout>
 
             <!--SET DATE-->
@@ -300,8 +540,8 @@
                 android:id="@+id/relativeLayout30"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background"
-                android:layout_below="@+id/relativeLayout21">
+                android:layout_below="@+id/relativeLayout21"
+                android:background="@color/background">
 
                 <app.giacomo.lavermicocca.termostato.Utils.TextViewFont
                     android:id="@+id/title_setdate"
@@ -310,7 +550,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Heaing system"
+                    android:text="Set date"
                     android:textColor="@color/gray3" />
 
             </RelativeLayout>
@@ -319,9 +559,9 @@
                 android:id="@+id/relativeLayout31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:layout_below="@+id/relativeLayout30"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:layout_weight="2">
 
                 <View
                     android:layout_width="fill_parent"
@@ -356,7 +596,7 @@
                         android:layout_marginTop="7dp"
                         android:gravity="center"
                         android:singleLine="true"
-                        android:text="Switch on/off"
+                        android:text="Set current date"
                         android:textColor="@color/line_dark" />
 
                 </RelativeLayout>
@@ -370,30 +610,31 @@
                         android:id="@+id/view4"
                         android:layout_width="180dp"
                         android:layout_height="1dp"
-                        android:layout_alignLeft="@+id/check_box_setdate"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
 
                         android:layout_alignParentTop="true"
-                        android:layout_alignStart="@+id/check_box_setdate"
-                        android:background="@color/line_dark" />
+                        android:background="@color/line_dark"
+                        android:layout_alignLeft="@+id/btn_set_current_date"
+                        android:layout_alignStart="@+id/btn_set_current_date" />
 
-                    <CheckBox
-                        android:id="@+id/check_box_setdate"
+                    <Button
+                        style="@style/button_round_blue"
+                        android:text="Set"
+                        android:id="@+id/btn_set_current_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="false"
+                        android:padding="2dp"
+                        android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true" />
+                        android:layout_below="@+id/view4"
+                        android:layout_marginTop="2dp" />
 
                 </RelativeLayout>
             </RelativeLayout>
 
         </RelativeLayout>
-
-
-
-
-
 
 
     </ScrollView>

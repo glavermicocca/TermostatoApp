@@ -11,7 +11,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import app.giacomo.lavermicocca.termostato.Adapter.ExpandableListAdapter;
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
+import app.giacomo.lavermicocca.termostato.Business.ScheduleBusiness;
 import app.giacomo.lavermicocca.termostato.Fragment.CustomPickerSchedule;
 import app.giacomo.lavermicocca.termostato.Fragment.Schedule;
 import app.giacomo.lavermicocca.termostato.Fragment.Dashboard;
@@ -28,6 +34,11 @@ public class ActivityDashboard extends BaseActionBarActivity implements
 
     public FragmentManager fm;
 
+    public List<String> listDataHeader;
+    public HashMap<String, List<ScheduleItemBean>> listDataChild;
+    public ExpandableListAdapter listAdapter;
+    public ScheduleBusiness scheduleBusiness;
+
     public ActivityDashboard() {
         super(R.layout.activity_dashboard, R.string.title_not_set, null, R.string.title_empty, "", ToolbarType.HAMBURGER);
     }
@@ -42,7 +53,21 @@ public class ActivityDashboard extends BaseActionBarActivity implements
         final DrawerLayout mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, mDrawerLayout, this.getToolbar());
 
+        //startup list + days
+        listDataHeader = new ArrayList<String>(7);
+        listDataChild = new HashMap<String, List<ScheduleItemBean>>();
 
+        // Adding child data
+        listDataHeader.add("Monday");
+        listDataHeader.add("Tuesday");
+        listDataHeader.add("Wednesday");
+        listDataHeader.add("Thursday");
+        listDataHeader.add("Friday");
+        listDataHeader.add("Saturday");
+        listDataHeader.add("Sunday");
+
+        this.scheduleBusiness = new ScheduleBusiness(this);
+        listAdapter = new ExpandableListAdapter(getApplicationContext(), listDataHeader, listDataChild, scheduleBusiness, fm);
     }//onCreate
 
     @Override

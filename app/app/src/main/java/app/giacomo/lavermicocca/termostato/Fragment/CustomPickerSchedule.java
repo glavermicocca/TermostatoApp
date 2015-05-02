@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import app.giacomo.lavermicocca.termostato.Bean.ScheduleItemBean;
+import app.giacomo.lavermicocca.termostato.Business.ScheduleBusiness;
 import app.giacomo.lavermicocca.termostato.R;
 
 public class CustomPickerSchedule extends DialogFragment
@@ -45,10 +47,14 @@ public class CustomPickerSchedule extends DialogFragment
     private FragmentActivity myContext;
 
     private static final String TITLE_WINDOW_TEXT = "titleWindowText";
+    private static final String GROUP_POSITION = "groupPosition";
 
     private String titleWindowText;
+    private int groupPosition;
 
     private String customPickerName;
+
+    private ScheduleBusiness scheduleBusiness;
 
     private OnFragmentCustomPickerInteractionListener mListener;
 
@@ -58,10 +64,11 @@ public class CustomPickerSchedule extends DialogFragment
      * @return
      */
     // TODO: Rename and change types and number of parameters
-    public static CustomPickerSchedule newInstance(String titleWindowText) {
+    public static CustomPickerSchedule newInstance(String titleWindowText, int groupPosition) {
         CustomPickerSchedule fragment = new CustomPickerSchedule();
         Bundle args = new Bundle();
         args.putString(TITLE_WINDOW_TEXT, titleWindowText);
+        args.putInt(GROUP_POSITION, groupPosition);
         fragment.setArguments(args);
         return fragment;
     }
@@ -75,6 +82,7 @@ public class CustomPickerSchedule extends DialogFragment
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             titleWindowText = getArguments().getString(TITLE_WINDOW_TEXT);
+            groupPosition = getArguments().getInt(GROUP_POSITION);
         }
     }
 
@@ -102,6 +110,7 @@ public class CustomPickerSchedule extends DialogFragment
         super.onAttach(activity);
         try {
             mListener = (OnFragmentCustomPickerInteractionListener) activity;
+            scheduleBusiness = new ScheduleBusiness(activity);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -166,6 +175,19 @@ public class CustomPickerSchedule extends DialogFragment
         temperatureUp.setOnTouchListener(touchListenerTemperatureUp);
         com.shamanland.fonticon.FontIconView temperatureDown = (FontIconView) view.findViewById(R.id.button_temperature_down);
         temperatureDown.setOnTouchListener(touchListenerTemperatureDown);
+
+        final TextView startTime = (TextView)view.findViewById(R.id.start_time);
+        final TextView endTime = (TextView)view.findViewById(R.id.end_time);
+        final TextView temperature = (TextView)view.findViewById(R.id.temperature);
+
+        Button btnSetSchedule = (Button) view.findViewById(R.id.btn_set_schedule);
+        btnSetSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scheduleBusiness.setSchedule(titleWindowText.toLowerCase(), ""+startTime.getText(), ""+endTime.getText(), ""+temperature.getText(), groupPosition);
+                CustomPickerSchedule.this.dismiss();
+            }
+        });
 
     }//setupView
 

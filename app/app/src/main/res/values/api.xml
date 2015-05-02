@@ -9,4 +9,9 @@
     <string name="api_post_set_schedule">/setSchedule</string>
     <string name="api_post_remove_schedule">/removeSchedule</string>
 
+    <string name="api_get_set_heating_system_on_off">/setHeatingSystem</string>
+    <string name="api_get_set_season">/setSeason</string>
+    <string name="api_get_set_display_light">/setDisplayLight</string>
+    <string name="api_post_set_system_date_millis">/setSystemDateMillis</string>
+
 </resources>
